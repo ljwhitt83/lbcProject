@@ -47,8 +47,20 @@ what questions to ask to make sure you are solving for what you say and stops
 discussions from getting sidetracked by aspects you do not intend to handle in
 your design.*
 
-### 4.1. In Scope
+- **Project Name:** G.Y.S.T. Get Your Stuff Together
+- **Project Goal:** To create a productivity app that helps users stay organized and motivated.
+- **Functional Requirements:**
+  - The app must allow users to create and manage to-do lists.
+  - The app must allow users to set goals and track their progress.
+  - The app must allow users to earn gold coins for achieving goals.
+  - The app must allow users to spend gold coins on items for their avatar or real-world rewards.
+  - The app must allow users to interact with other users to accomplish quests together.
+- **Non-Functional Requirements:**
+  - The app must be available on both iOS and Android devices.
+  - The app must be secure and protect users' data.
+  - The app must be user-friendly and easy to use.
 
+### 4.1. In Scope
 *Which parts of the problem defined in Sections 1 and 3 will you solve with this
 design?*
 
@@ -58,14 +70,16 @@ We will solve problem 4 by adding a rewards section where the user can redeem pr
 
 
 ### 4.2. Out of Scope
-
 *Based on your problem description in Sections 1 and 3, are there any aspects
 you are not planning to solve? Do potential expansions or related problems occur
 to you that you want to explicitly say you are not worrying about now? Feel free
 to put anything here that you think your team can't accomplish in the unit, but
 would love to do with more time.*
 
-All currently stated goals are within the scope of the project.
+- **Non-Functional Requirements:**
+    - The app must be available on both iOS and Android devices.
+    - The app must be secure and protect users' data.
+    - The app must be user-friendly and easy to use.
 
 # 5. Proposed Architecture Overview
 
@@ -87,6 +101,13 @@ requirements.*
 *Define the data models your service will expose in its responses via your
 *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
 *`SongModel`* from the Unit 3 project.*
+
+**Models**
+- UserModel
+- QuestModel
+- RewardModel
+- TaskModel
+- 
 
 ## 6.2. *First Endpoint*
 
@@ -114,6 +135,13 @@ the first endpoint)*
 may be helpful to first think of what objects your service will need, then
 translate that to a table structure, like with the *`Playlist` POJO* versus the
 `playlists` table in the Unit 3 project.*
+
+**Tables**
+- users
+- quests
+- tasks
+- rewards
+
 
 # 8. Pages
 
