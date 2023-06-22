@@ -1,0 +1,111 @@
+@startuml
+
+class Task {
+    -title: String
+    -description: String
+    -difficulty: Difficulty
+    -deadline: DateRange
+    -reward: Reward
+}
+
+class RepeatableTask {
+    -completed: int
+    -frequency: Frequency
+}
+
+class OneTimeTask {
+    -completed: boolean
+}
+
+class Campaign {
+    quests: List<Quest>
+}
+
+class Quest {
+    -tasks: List<Task>
+    -completed: boolean
+    -difficulty: Difficulty
+    -duration: Duration
+    -deadline: DateRange
+    -reward: Reward
+}
+
+class Reward {
+    -title: String
+    -description: String
+    -currency: int
+    -items: List<Item>
+}
+
+class User {
+    -username: String
+    -firstName: String
+    -lastName: String
+    -email: String
+    -password: String
+    -friends: List<String>
+    -avatar: Hero
+}
+
+class Hero {
+    -level: int
+    -health: int
+    -currency: int
+    -items: List<Item>
+}
+
+class Item {
+    -title: String
+    -description: String
+    -rarity: Rarity
+}
+
+enum Rarity {
+    COMMON
+    UNCOMMON
+    RARE
+    EPIC
+    LEGENDARY
+}
+
+enum Difficulty {
+    EASY
+    MEDIUM
+    HARD
+    INSANE
+}
+
+enum Duration {
+    SHORT_TERM
+    MID_TERM
+    LONG_TERM
+}
+
+enum Frequency {
+    DAILY
+    WEEKLY
+    MONTHLY
+}
+
+class DateRange {
+    -startDate: LocalDate
+    -endDate: LocalDate
+    +in(LocalDate) boolean
+}
+
+Campaign o-- Quest
+Quest o-- Task
+
+Task --> Reward
+Task --> DateRange
+Task <|-- RepeatableTask
+Task <|-- OneTimeTask
+
+Quest --> DateRange
+Quest --> Reward
+
+User o-- Hero
+Hero o-- Item
+Reward --> Item
+
+@enduml
