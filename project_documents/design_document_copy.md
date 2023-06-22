@@ -16,9 +16,9 @@ level of detail to aim for.*
 ## *Project Title* Design
 
 ## 1. Problem Statement
-Creating an application to gamifying your life for yourself and your family. 
-To better organize and encourage participation in accomplishing daily life goals.
 
+Creating an application to gameify your life for yourself and your family.
+To better organize and encourage participation in accomplishing daily life goals.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -26,7 +26,6 @@ To better organize and encourage participation in accomplishing daily life goals
 2.   How do I motivate my family to accomplish tasks and goals?
 3.   How do I reliably remind myself of things I need to do in the future?
 4.   How do I have a cool customizable avatar that shows I have earned a lot of currency?
- 
 
 ## 3. Use Cases
 
@@ -35,9 +34,9 @@ would like to do (and why). You may also include use cases for yourselves, or
 for the organization providing the product to customers.*
 
 
-As a GYST customer, I want to be reminded of things I have planned.
-As a GYST customer, I want to receive gold coins when I achieve my goals.
-As a GYST customer, I want to buy things with my gold coins such as items for my avatar or rewards in real life.
+As a GYST customer, I want to be reminded of things I have planned.  
+As a GYST customer, I want to receive gold coins when I achieve my goals.  
+As a GYST customer, I want to buy things with my gold coins such as items for my avatar or rewards in real life.  
 As a GYST customer, I want to interact with other users to accomplish quests together.
 
 ## 4. Project Scope
@@ -47,25 +46,39 @@ what questions to ask to make sure you are solving for what you say and stops
 discussions from getting sidetracked by aspects you do not intend to handle in
 your design.*
 
-### 4.1. In Scope
+- **Project Name:** G.Y.S.T. Get Your Stuff Together
+- **Project Goal:** To create a productivity app that helps users stay organized and motivated.
+- **Functional Requirements:**
+    - The app must allow users to create and manage to-do lists.
+    - The app must allow users to set goals and track their progress.
+    - The app must allow users to earn gold coins for achieving goals.
+    - The app must allow users to spend gold coins on items for their avatar or real-world rewards.
+    - The app must allow users to interact with other users to accomplish quests together.
+- **Non-Functional Requirements:**
+    - The app must be available on both iOS and Android devices.
+    - The app must be secure and protect users' data.
+    - The app must be user-friendly and easy to use.
 
+### 4.1. In Scope
 *Which parts of the problem defined in Sections 1 and 3 will you solve with this
 design?*
 
-We will solve problems 1 and 2 by creating a currency and a store where you can choose among predefined items or create custom items you can buy with the currency. There will also be a combo system where if you are achieving your goals many times in a row you will receive extra currency. We will also add competition by adding the ability to interact with other users and share goals to compete on who gets the most points.
-We will solve problem 3 by adding a calendar system where you will be able to record dates and when important events will be taking place.
-We will solve problem 4 by adding a rewards section where the user can redeem predefined rewards or other items.
+We will solve problems 1 and 2 by creating a currency and a store where you can choose among predefined items or create custom items you can buy with the currency. We will also add competition by adding the ability to interact with other users and share goals to compete on who gets the most points.  
+We will solve problem 3 by adding a calendar system where you will be able to record dates and times of when important events will be taking place.  
+We will solve problem 4 by adding a rewards section where the user can redeem predefined rewards or other items.  
 
 
 ### 4.2. Out of Scope
-
 *Based on your problem description in Sections 1 and 3, are there any aspects
 you are not planning to solve? Do potential expansions or related problems occur
 to you that you want to explicitly say you are not worrying about now? Feel free
 to put anything here that you think your team can't accomplish in the unit, but
 would love to do with more time.*
 
-All currently stated goals are within the scope of the project.
+- **Non-Functional Requirements:**
+    - The app must be available on both iOS and Android devices.
+    - The app must be secure and protect users' data.
+    - The app must be user-friendly and easy to use.
 
 # 5. Proposed Architecture Overview
 
@@ -80,6 +93,8 @@ reasonable. That is, why it represents a good data flow and a good separation of
 concerns. Where applicable, argue why this architecture satisfies the stated
 requirements.*
 
+<img src="images/CD.png">
+
 # 6. API
 
 ## 6.1. Public Models
@@ -87,6 +102,14 @@ requirements.*
 *Define the data models your service will expose in its responses via your
 *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
 *`SongModel`* from the Unit 3 project.*
+
+**Models**
+- UserModel
+- HeroModel
+- RewardModel
+- CampaignModel
+- QuestModel
+- TaskModel
 
 ## 6.2. *First Endpoint*
 
@@ -114,6 +137,13 @@ the first endpoint)*
 may be helpful to first think of what objects your service will need, then
 translate that to a table structure, like with the *`Playlist` POJO* versus the
 `playlists` table in the Unit 3 project.*
+
+**Tables**
+- users
+- quests
+- tasks
+- rewards
+
 
 # 8. Pages
 

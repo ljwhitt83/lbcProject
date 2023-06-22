@@ -44,10 +44,10 @@ class User {
     -email: String
     -password: String
     -friends: List<String>
-    -avatar: Avatar
+    -avatar: Hero
 }
 
-class Avatar {
+class Hero {
     -level: int
     -health: int
     -currency: int
@@ -104,8 +104,8 @@ Task <|-- OneTimeTask
 Quest --> DateRange
 Quest --> Reward
 
-User o-- Avatar
-Avatar o-- Item
+User o-- Hero
+Hero o-- Item
 Reward --> Item
 
 @enduml
