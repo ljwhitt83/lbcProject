@@ -112,9 +112,6 @@ requirements.*
 - CampaignModel
 - QuestModel
 - TaskModel
-- QuestModel
-- RewardModel
-- TaskModel
 
 
 ## 6.2. *First Endpoint*
