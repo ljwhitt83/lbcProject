@@ -49,15 +49,17 @@ your design.*
 - **Project Name:** G.Y.S.T. Get Your Stuff Together
 - **Project Goal:** To create a productivity app that helps users stay organized and motivated.
 - **Functional Requirements:**
-    - The app must allow users to create and manage to-do lists.
-    - The app must allow users to set goals and track their progress.
-    - The app must allow users to earn gold coins for achieving goals.
-    - The app must allow users to spend gold coins on items for their avatar or real-world rewards.
-    - The app must allow users to interact with other users to accomplish quests together.
+
+  - The app must allow users to create and manage to-do lists.
+  - The app must allow users to set goals and track their progress.
+  - The app must allow users to earn gold coins for achieving goals.
+  - The app must allow users to spend gold coins on items for their avatar or real-world rewards.
+  - The app must allow users to interact with other users to accomplish quests together.
 - **Non-Functional Requirements:**
-    - The app must be available on both iOS and Android devices.
-    - The app must be secure and protect users' data.
-    - The app must be user-friendly and easy to use.
+  - The app must be available on both iOS and Android devices.
+  - The app must be secure and protect users' data.
+  - The app must be user-friendly and easy to use.
+
 
 ### 4.1. In Scope
 *Which parts of the problem defined in Sections 1 and 3 will you solve with this
@@ -110,6 +112,10 @@ requirements.*
 - CampaignModel
 - QuestModel
 - TaskModel
+- QuestModel
+- RewardModel
+- TaskModel
+
 
 ## 6.2. *First Endpoint*
 
