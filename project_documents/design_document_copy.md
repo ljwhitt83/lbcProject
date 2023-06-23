@@ -201,6 +201,7 @@ where customers enter and submit data. You may want to accompany the mockups
 with some description of behaviors of the page (e.g. “When customer submits the
 submit-dog-photo button, the customer is sent to the doggie detail page”)*
 
+
 ![Main view when user logs in and homepage before logging in.](images/mainView.jpg)
 
 ![Quest view of what our hero/s is qualified to complete and assign to the squad.](images/questView.jpg)
@@ -210,3 +211,4 @@ submit-dog-photo button, the customer is sent to the doggie detail page”)*
 ![The hero view is where you can view the stats of our hero and to add heroes to a squad(family memebers)](images/heroView.jpg)
 
 ![The rewards view is the area where you can see what rewards you can purchase as well as add more to the existing list.](images/rewardsView.jpg)
+
