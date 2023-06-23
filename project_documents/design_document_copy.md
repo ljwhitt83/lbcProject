@@ -114,6 +114,7 @@ requirements.*
 - TaskModel
 
 
+
 ## 6.2. *First Endpoint*
 
 *Describe the behavior of the first endpoint you will build into your service
@@ -143,9 +144,51 @@ translate that to a table structure, like with the *`Playlist` POJO* versus the
 
 **Tables**
 - users
+  - userName // partition key, string
+  - firstName // string
+  - lastName // string
+  - email // string
+  - password // string
+  - friends // List<String>(friendship table)
+  - avatar // Hero
+
+- hero
+  - heroName // partition key, string
+  - level // integer
+  - health // integer
+  - currency // integer
+  - items // List<string>(Items table)
+
+- item
+  - itemName // partition key, string
+  - title // string
+  - description // string
+ 
+- friendship
+  - followingUser // composite partition key, string
+  - followedUser // composite sort key, string
+ 
 - quests
+  - questName // partition key, string
+  - tasks // List<String>(task table)  
+  - reward // List<string>(rewardsTable)
+ 
 - tasks
+  - taskName // partition key, string
+  - description // string
+  - dificulty // string
+  - duration // timeDate
+  - deadline // DateRange
+ 
+- dateRange
+  - startDate // timeDate
+  - endDate  // timeDate
+
 - rewards
+  - rewardName // partition key, string
+  - description // string
+  - currency // integer
+  - 
 
 
 # 8. Pages
@@ -157,3 +200,15 @@ pages. It should be clear what the interactions will be on the page, especially
 where customers enter and submit data. You may want to accompany the mockups
 with some description of behaviors of the page (e.g. “When customer submits the
 submit-dog-photo button, the customer is sent to the doggie detail page”)*
+
+
+![Main view when user logs in and homepage before logging in.](images/mainView.jpg)
+
+![Quest view of what our hero/s is qualified to complete and assign to the squad.](images/questView.jpg)
+
+![This friend view is where you will be able to see all  the friends you have and to searc/ add more](images/friendView.jpg)
+
+![The hero view is where you can view the stats of our hero and to add heroes to a squad(family memebers)](images/heroView.jpg)
+
+![The rewards view is the area where you can see what rewards you can purchase as well as add more to the existing list.](images/rewardsView.jpg)
+
