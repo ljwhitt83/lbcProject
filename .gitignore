@@ -1,0 +1,25 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# Compiled files
+*.class
+
+# Log files
+*.log
+
+# User-specific files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/modules.xml
