@@ -1,24 +1,10 @@
 # [team name] Design Document
 
-## Instructions
-
-*Save a copy of this template for your team in the same folder that contains
-this template.*
-
-*Replace italicized text (including this text!) with details of the design you
-are proposing for your team project. (Your replacement text shouldn't be in
-italics)*
-
-*You should take a look at the example design document in the same folder as
-this template for more guidance on the types of information to capture, and the
-level of detail to aim for.*
-
 ## *Project Title* Design
 
 ## 1. Problem Statement
 
-Creating an application to gameify your life for yourself and your family.
-To better organize and encourage participation in accomplishing daily life goals.
+Gameify your life for yourself and your family, better organize and encourage participation in accomplishing daily life goals.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -97,6 +83,14 @@ requirements.*
 
 <img src="images/CD.png">
 
+I propose to keep track of tasks and the times that they should be done and organizing
+them in a visually appealing calendar for the user. The user will hava a virtual avatar
+that will be going through an adventure game highly dependent on whether tasks are completed.
+If the user wants their avatar to succeed in the adventure game they will have to be diligent
+in completing their tasks. The game will be losable with checkpoints and will have rewards
+such as experience, currency, and items. Users will be able to interact and see each other's
+avatars.
+
 # 6. API
 
 ## 6.1. Public Models
@@ -106,16 +100,56 @@ requirements.*
 *`SongModel`* from the Unit 3 project.*
 
 **Models**
-- UserModel
-- HeroModel
-- RewardModel
-- CampaignModel
-- QuestModel
-- TaskModel
+1. UserModel
+2. HeroModel
+3. TaskModel
+4. CampaignModel
+5. QuestModel
+6. RewardModel
+7. ItemModel
 
+## 6.2 Endpoints
 
+1. Users
+   - **GET /users/{userId}**: Retrieve the details of a specific user identified by *userId*.
+   - **POST /users**: Create a new user with the provided user data.
+   - **PUT /users/{userId}**: Update the details of a specific user identified by *userId*.
+   - **DELETE /users/{userId}**: Delete a specific user identified by *userId*.
+2. Heroes
+   - **GET /heroes/{userId}**: Retrieve the details of a specific hero identified by *userId*.
+   - **PUT /heroes/{userId}**: Update the details of a specific hero identified by *userId*.
+3. Tasks
+   - **GET /tasks**: Retrieve a list of all tasks.
+   - **GET /tasks/{taskId}**: Retrieve the details of a specific task identified by *taskId*.
+   - **POST /tasks**: Create a new task with the provided task data.
+   - **PUT /tasks/{taskId}**: Update the details of a specific task identified by *taskId*.
+   - **DELETE /tasks/{taskId}**: Delete a specific task identified by *taskId*.
+4. Quests
+   - **GET /quests**: Retrieve a list of all quests.
+   - **GET /quests/{questId}**: Retrieve the details of a specific quest identified by *questId*.
+   - **POST /quests**: Create a new quest with the provided task data.
+   - **PUT /quests/{questId}**: Update the details of a specific quest identified by *questId*.
+   - **DELETE /quests/{questId}**: Delete a specific quest identified by *questId*.
+5. Campaigns
+   - **GET /campaigns**: Retrieve a list of all campaigns.
+   - **GET /campaigns/{campaignId}**: Retrieve the details of a specific campaign identified by *campaignId*.
+   - **POST /campaigns**: Create a new campaign with the provided task data.
+   - **PUT /campaigns/{campaignId}**: Update the details of a specific campaign identified by *campaignId*.
+   - **DELETE /campaigns/{campaignId}**: Delete a specific campaign identified by *campaignId*.
+6. Rewards
+   - **GET /rewards**: Retrieve a list of all rewards.
+   - **GET /rewards/{rewardId}**: Retrieve the details of a specific reward identified by *rewardId*.
+   - **POST /rewards**: Create a new reward with the provided task data.
+   - **PUT /rewards/{rewardId}**: Update the details of a specific reward identified by *rewardId*.
+   - **DELETE /rewards/{rewardId}**: Delete a specific reward identified by *rewardId*.
+7. Items
+   - **GET /items**: Retrieve a list of all items.
+   - **GET /items/{itemId}**: Retrieve the details of a specific item identified by *itemId*.
+   - **POST /items**: Create a new item with the provided task data.
+   - **PUT /items/{itemId}**: Update the details of a specific item identified by *itemId*.
+   - **DELETE /items/{itemId}**: Delete a specific item identified by *itemId*.
 
-## 6.2. *First Endpoint*
+## 6.3. *First Endpoint*
 
 *Describe the behavior of the first endpoint you will build into your service
 API. This should include what data it requires, what data it returns, and how it
@@ -128,7 +162,23 @@ your team before building it!)*
 *(You should have a separate section for each of the endpoints you are expecting
 to build...)*
 
-## 6.3 *Second Endpoint*
+The first endpoint we will build into the service API is the ***GET /users/{userId}*** endpoint.  
+**Data Required**: The endpoint requires the 'username' of the user to be provided.   
+**Data Returned**: The endpoint will return a JSON response containing the user
+object matching the provided username. It will include attributes such as: *username*,
+*friends*, *avatar*, and *firstName* and *lastName* if public.   
+**Failure Case Handling**: 
+- If there is an error connecting to the database or retrieving
+the user data, the endpoint can return an appropriate error response with an error message,
+such as a 500 Internal Server Error.
+- If no user is found with the provided username, the endpoint can return a 404 Not Found
+status code with an error message indicating that the user does not exist.   
+
+**Sequence Diagram**:   
+
+<img src="images/SD.png">
+
+## 6.4 *Second Endpoint*
 
 *(repeat, but you can use shorthand here, indicating what is different, likely
 primarily the data in/out and error conditions. If the sequence diagram is
@@ -143,52 +193,62 @@ translate that to a table structure, like with the *`Playlist` POJO* versus the
 `playlists` table in the Unit 3 project.*
 
 **Tables**
+
 - users
-  - userName // partition key, string
-  - firstName // string
-  - lastName // string
-  - email // string
-  - password // string
-  - friends // List<String>(friendship table)
-  - avatar // Hero
+    - userId  // int
+    - username  // String
+    - firstName  // String
+    - lastName  // String
+    - email  // String
+    - password  // String
+    - friends  // List<int>(users table)
+    - avatar  // int
 
-- hero
-  - heroName // partition key, string
-  - level // integer
-  - health // integer
-  - currency // integer
-  - items // List<string>(Items table)
+- heroes
+    - userId  // int
+    - name  // String
+    - level  // int
+    - experience  // int
+    - health  // int
+    - currency  // int
+    - items  // List<int>(items table)
 
-- item
-  - itemName // partition key, string
-  - title // string
-  - description // string
- 
-- friendship
-  - followingUser // composite partition key, string
-  - followedUser // composite sort key, string
- 
-- quests
-  - questName // partition key, string
-  - tasks // List<String>(task table)  
-  - reward // List<string>(rewardsTable)
- 
 - tasks
-  - taskName // partition key, string
-  - description // string
-  - dificulty // string
-  - duration // timeDate
-  - deadline // DateRange
- 
-- dateRange
-  - startDate // timeDate
-  - endDate  // timeDate
+    - taskId  // int
+    - name  // String
+    - description  // String
+    - difficulty  // String
+    - deadline  // DateRange
+    - reward  // Reward(rewards table)
+
+- quests
+    - questId  // int
+    - name  // String
+    - tasks  // List<int>(tasks table)
+    - completed  // boolean
+    - difficulty  // String
+    - duration  // String
+    - deadline  // DateRange
+    - reward  // int(rewards table)
+
+- campaigns
+    - campaignId  // int
+    - name  // String
+    - quests  // List<int>(quests table)
+
+- items
+    - itemId  // int
+    - name  // String
+    - description  // String
+    - rarity  // String
 
 - rewards
-  - rewardName // partition key, string
-  - description // string
-  - currency // integer
-  - 
+    - rewardId  // int
+    - name  // String
+    - description  // String
+    - currency  // int
+    - experience  // int
+    - items  // List<int>(items table)
 
 
 # 8. Pages

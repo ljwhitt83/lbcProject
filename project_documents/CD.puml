@@ -1,7 +1,29 @@
 @startuml
 
+class User {
+    -userId: int
+    -username: String
+    -firstName: String
+    -lastName: String
+    -email: String
+    -password: String
+    -friends: List<int>
+    -avatar: int
+}
+
+class Hero {
+    -userId: int
+    -name: String
+    -level: int
+    -experience: int
+    -health: int
+    -currency: int
+    -items: List<int>
+}
+
 class Task {
-    -title: String
+    -taskId: int
+    -name: String
     -description: String
     -difficulty: Difficulty
     -deadline: DateRange
@@ -17,12 +39,10 @@ class OneTimeTask {
     -completed: boolean
 }
 
-class Campaign {
-    quests: List<Quest>
-}
-
 class Quest {
-    -tasks: List<Task>
+    -questId: int
+    -name: String
+    -tasks: List<int>
     -completed: boolean
     -difficulty: Difficulty
     -duration: Duration
@@ -30,34 +50,26 @@ class Quest {
     -reward: Reward
 }
 
-class Reward {
-    -title: String
-    -description: String
-    -currency: int
-    -items: List<Item>
-}
-
-class User {
-    -username: String
-    -firstName: String
-    -lastName: String
-    -email: String
-    -password: String
-    -friends: List<String>
-    -avatar: Hero
-}
-
-class Hero {
-    -level: int
-    -health: int
-    -currency: int
-    -items: List<Item>
+class Campaign {
+    -campaignId: int
+    -name: String
+    -quests: List<int>
 }
 
 class Item {
-    -title: String
+    -itemId: int
+    -name: String
     -description: String
     -rarity: Rarity
+}
+
+class Reward {
+    -rewardId: int
+    -name: String
+    -description: String
+    -currency: int
+    -experience: int
+    -items: List<int>
 }
 
 enum Rarity {
