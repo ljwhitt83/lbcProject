@@ -7,8 +7,8 @@ class User {
     -lastName: String
     -email: String
     -password: String
-    -friends: List<int>
-    -avatar: int
+    -friendIds: List<int>
+    -avatarId: int
 }
 
 class Hero {
@@ -18,7 +18,7 @@ class Hero {
     -experience: int
     -health: int
     -currency: int
-    -items: List<int>
+    -itemIds: List<int>
 }
 
 class Task {
@@ -26,34 +26,29 @@ class Task {
     -name: String
     -description: String
     -difficulty: Difficulty
-    -deadline: DateRange
-    -reward: Reward
-}
-
-class RepeatableTask {
     -completed: int
     -frequency: Frequency
-}
-
-class OneTimeTask {
-    -completed: boolean
+    -dueDate: DateRange
+    -deadline: LocalDate
+    -rewardId: int
 }
 
 class Quest {
     -questId: int
     -name: String
-    -tasks: List<int>
+    -taskIds: List<int>
     -completed: boolean
     -difficulty: Difficulty
     -duration: Duration
-    -deadline: DateRange
-    -reward: Reward
+    -dueDate: DateRange
+    -deadline: LocalDate
+    -rewardId: int
 }
 
 class Campaign {
     -campaignId: int
     -name: String
-    -quests: List<int>
+    -questIds: List<int>
 }
 
 class Item {
@@ -69,7 +64,7 @@ class Reward {
     -description: String
     -currency: int
     -experience: int
-    -items: List<int>
+    -itemIds: List<int>
 }
 
 enum Rarity {
@@ -94,6 +89,7 @@ enum Duration {
 }
 
 enum Frequency {
+    NONE
     DAILY
     WEEKLY
     MONTHLY
@@ -102,7 +98,7 @@ enum Frequency {
 class DateRange {
     -startDate: LocalDate
     -endDate: LocalDate
-    +in(LocalDate) boolean
+    +has(LocalDate) boolean
 }
 
 Campaign o-- Quest
@@ -110,11 +106,6 @@ Quest o-- Task
 
 Task --> Reward
 Task --> DateRange
-Task <|-- RepeatableTask
-Task <|-- OneTimeTask
-
-Quest --> DateRange
-Quest --> Reward
 
 User o-- Hero
 Hero o-- Item
