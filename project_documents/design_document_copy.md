@@ -201,40 +201,43 @@ translate that to a table structure, like with the *`Playlist` POJO* versus the
     - lastName  // String
     - email  // String
     - password  // String
-    - friends  // List<int>(users table)
-    - avatar  // int
+    - friendIds  // List<int>(users table)
+    - avatarId  // int(avatars table)
 
 - heroes
-    - userId  // int
+    - userId  // int(users table)
     - name  // String
     - level  // int
     - experience  // int
     - health  // int
     - currency  // int
-    - items  // List<int>(items table)
+    - itemIds  // List<int>(items table)
 
 - tasks
     - taskId  // int
     - name  // String
     - description  // String
     - difficulty  // String
-    - deadline  // DateRange
-    - reward  // Reward(rewards table)
+    - completed // int
+    - frequency // DateRange
+    - deadline  // LocalDate
+    - rewardId  // int(rewards table)
 
 - quests
     - questId  // int
     - name  // String
-    - tasks  // List<int>(tasks table)
+    - taskIds  // List<int>(tasks table)
     - completed  // boolean
     - difficulty  // String
     - duration  // String
-    - deadline  // DateRange
-    - reward  // int(rewards table)
+    - dueDate  // DateRange
+    - deadline  // LocalDate
+    - rewardId  // int(rewards table)
 
 - campaigns
     - campaignId  // int
     - name  // String
-    - quests  // List<int>(quests table)
+    - questIds  // List<int>(quests table)
 
 - items
     - itemId  // int
@@ -248,7 +251,7 @@ translate that to a table structure, like with the *`Playlist` POJO* versus the
     - description  // String
     - currency  // int
     - experience  // int
-    - items  // List<int>(items table)
+    - itemIds  // List<int>(items table)
 
 
 # 8. Pages

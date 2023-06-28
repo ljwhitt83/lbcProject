@@ -8,7 +8,7 @@ public class Reward {
     private String description;
     private int currency;
     private int experience;
-    private List<Integer> items;
+    private List<Integer> itemIds;
 
     public int getRewardId() {
         return rewardId;
@@ -50,11 +50,11 @@ public class Reward {
         this.experience = experience;
     }
 
-    public List<Integer> getItems() {
-        return items;
+    public List<Integer> getItemIds() {
+        return itemIds;
     }
 
-    public void setItems(List<Integer> items) {
-        this.items = items;
+    public void setItemIds(List<Integer> itemIds) {
+        this.itemIds = itemIds;
     }
 }

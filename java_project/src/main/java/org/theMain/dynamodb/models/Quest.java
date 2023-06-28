@@ -10,13 +10,13 @@ import java.util.List;
 public class Quest {
     private int questId;
     private String name;
-    private List<Integer> tasks;
+    private List<Integer> taskIds;
     private boolean completed;
     private Difficulty difficulty;
     private Duration duration;
     private DateRange dueDate;
     private LocalDate deadline;
-    private Reward reward;
+    private int rewardId;
 
     public int getQuestId() {
         return questId;
@@ -35,11 +35,11 @@ public class Quest {
     }
 
     public List<Integer> getTasks() {
-        return tasks;
+        return taskIds;
     }
 
     public void setTasks(List<Integer> tasks) {
-        this.tasks = tasks;
+        this.taskIds = tasks;
     }
 
     public boolean isCompleted() {
@@ -82,11 +82,11 @@ public class Quest {
         this.deadline = deadline;
     }
 
-    public Reward getReward() {
-        return reward;
+    public int getRewardId() {
+        return rewardId;
     }
 
-    public void setReward(Reward reward) {
-        this.reward = reward;
+    public void setRewardId(int rewardId) {
+        this.rewardId = rewardId;
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public class Campaign {
     private int campaignId;
     private String name;
-    private List<Integer> quests;
+    private List<Integer> questIds;
 
     public int getCampaignId() {
         return campaignId;
@@ -24,10 +24,10 @@ public class Campaign {
     }
 
     public List<Integer> getQuests() {
-        return quests;
+        return questIds;
     }
 
     public void setQuests(List<Integer> quests) {
-        this.quests = quests;
+        this.questIds = quests;
     }
 }
